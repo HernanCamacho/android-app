@@ -8,9 +8,25 @@ import { Global } from './global.service';
 export class GistsService {
 
     public url: string;
+    public projects;
 
     constructor( public _http: HttpClient ) {
         this.url = Global.url;
+    }
+
+    refreshProjects(): Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url, {headers: headers});
+    }
+
+    getSavedProjects(){
+        let projects = JSON.parse(localStorage.getItem('projects'));
+        return projects;
+    }
+
+    persistData(projects){
+        localStorage.setItem('projects', JSON.stringify(projects));
+        return true;
     }
 
 }
