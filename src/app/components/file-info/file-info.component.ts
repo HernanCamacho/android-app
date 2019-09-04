@@ -1,3 +1,5 @@
+// This component display info about file info like the number of comments, the date gists was created, etc.
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

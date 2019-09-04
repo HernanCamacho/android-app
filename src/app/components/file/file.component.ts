@@ -1,3 +1,5 @@
+// This component display info about file like filename, type, language, etc. 
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

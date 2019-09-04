@@ -1,3 +1,5 @@
+// This component display info about text-details like code 
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

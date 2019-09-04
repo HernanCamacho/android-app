@@ -1,3 +1,5 @@
+// This component display a home page
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

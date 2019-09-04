@@ -1,3 +1,5 @@
+// This component display info about user like avatar, name, etc.
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
