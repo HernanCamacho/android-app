@@ -18,7 +18,7 @@ export class FileInfoComponent implements OnInit {
 
     ngOnInit(){
         this.file = Object.entries(this.gist.files);
-        console.log(this.file);
+        console.log(this.gist);
     }
 
 }
