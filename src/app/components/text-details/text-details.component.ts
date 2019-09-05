@@ -37,8 +37,8 @@ export class TextDetailsComponent implements OnInit {
     getCode(url){
         this._gistsService.getCode(url).subscribe(
             response => {
-                this.loading = false;
                 this.code = response;
+                this.loading = false;
             }, error => {
                 console.log(error);
             });
