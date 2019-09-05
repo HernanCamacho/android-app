@@ -14,11 +14,14 @@ export class TextDetailsComponent implements OnInit {
 
     @Input() fileDetails;
     public code;
+    public loading: boolean;
 
     constructor(
         private _gistsService: GistsService,
         private _route: ActivatedRoute
-    ){}
+    ){
+        this.loading = true;
+    }
 
     ngOnInit(){
         this.loadPage();
@@ -34,6 +37,7 @@ export class TextDetailsComponent implements OnInit {
     getCode(url){
         this._gistsService.getCode(url).subscribe(
             response => {
+                this.loading = false;
                 this.code = response;
             }, error => {
                 console.log(error);

@@ -8,8 +8,11 @@
   </span>
 </nav>
 
-<div class="container">
+<div class="container" *ngIf="!loading">
     <div *ngFor="let gist of gists" class="card">
         <app-file-info [gist]="gist"></app-file-info>
     </div>
+</div>
+<div class="container" *ngIf="loading">
+    <img class="loading" src="../../../assets/gift/loading.gif" alt="">
 </div>
