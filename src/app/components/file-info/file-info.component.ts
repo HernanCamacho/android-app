@@ -1,6 +1,6 @@
 // This component display info about file info like the number of comments, the date gists was created, etc.
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-file-info',
@@ -9,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileInfoComponent implements OnInit {
 
-    constructor(){
+    @Input() gist;
 
+    public file;
+
+    constructor(){
     }
 
     ngOnInit(){
-
+        this.file = Object.entries(this.gist.files);
+        console.log(this.file);
     }
 
 }

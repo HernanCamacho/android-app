@@ -1,0 +1,18 @@
+<div class="card-body">
+    <div class="row">
+        <div class="user" style="width: 20%;">
+            <a href="">
+                <img style="width: 100%;" src="{{gist.owner.avatar_url}}" alt="">
+            </a>
+        </div>
+        <div style="width:80%">
+            <div class="info-file">
+                <a href="">
+                    <span class="info filename">{{file[0][1].filename}}</span>
+                </a>
+                <time class="info file">{{gist.created_at | date:'dd/MM/yyyy'}}</time>
+                <span class="info file">{{gist.comments}}</span>    
+            </div>
+        </div>
+    </div>
+</div>

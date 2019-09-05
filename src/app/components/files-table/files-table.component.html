@@ -1,1 +1,9 @@
-<h2>Qué me ve Ramírez que me ve? '>:v'</h2>
+<nav class="navbar navbar-light bg-light">
+  <a style="margin: auto;" class="navbar-brand" href="#">Github's Projects</a>
+</nav>
+
+<div class="container">
+    <div *ngFor="let gist of gists" style="margin: 15px 0;" class="card">
+        <app-file-info [gist]="gist"></app-file-info>
+    </div>
+</div>
