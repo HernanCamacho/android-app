@@ -53,6 +53,7 @@ export class FilesTableComponent implements OnInit {
                     if(this._gistsService.persistData(this.gists)){
                         this.loading = false;
                         console.log('Datos almacenados en localStorage');
+                        this.loading = false;
                     }else{
                         console.log('Error al almacenar en localStorage');
                     }
