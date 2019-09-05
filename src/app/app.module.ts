@@ -11,11 +11,9 @@ import { HighlightModule } from 'ngx-highlightjs';
 
 // Components
 
-import { FileComponent } from './components/file/file.component';
 import { FileInfoComponent } from './components/file-info/file-info.component';
 import { FilesTableComponent } from './components/files-table/files-table.component';
 import { TextDetailsComponent } from './components/text-details/text-details.component';
-import { UserComponent } from './components/user/user.component';
 
 import xml from 'highlight.js/lib/languages/xml';
 import scss from 'highlight.js/lib/languages/scss';
@@ -32,11 +30,9 @@ export function hljsLanguages() {
 @NgModule({
   declarations: [
     AppComponent,
-    FileComponent,
     FileInfoComponent,
     FilesTableComponent,
     TextDetailsComponent,
-    UserComponent,
   ],
   imports: [
     BrowserModule,
