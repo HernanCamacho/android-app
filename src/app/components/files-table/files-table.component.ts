@@ -3,11 +3,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GistsService } from '../../services/gists.service';
+import { CheckTimeService } from '../../services/check-time.service';
 
 @Component({
     selector: 'app-files-table',
     templateUrl: './files-table.component.html',
-    providers: [GistsService]
+    providers: [GistsService, CheckTimeService]
 })
 export class FilesTableComponent implements OnInit {
 
@@ -16,21 +17,25 @@ export class FilesTableComponent implements OnInit {
     public lastUpdate;
 
     constructor(
-        private _gistsService: GistsService
+        private _gistsService: GistsService,
+        private _checkTimeService: CheckTimeService
     ){
         this.title = 'Hello :)';
         this.lastUpdate = new Date();
     }
 
     ngOnInit(){
-        this.getProjects(true);
+        this.getProjects();
+        this.counterTime();
     }
-    
+
     getProjects(update = false){
         if(update){
             this.refreshProjects();
         }else{
-            this.getSavedProjects();
+            if(this.getSavedProjects() == null){
+                this.refreshProjects();
+            }
         }
     }
 
@@ -40,7 +45,6 @@ export class FilesTableComponent implements OnInit {
                 if(response.length > 0){
                     this.gists = response;
                     if(this._gistsService.persistData(this.gists)){
-                        this.lastUpdate = new Date();
                         console.log('Datos almacenados en localStorage');
                     }else{
                         console.log('Error al almacenar en localStorage');
@@ -55,15 +59,10 @@ export class FilesTableComponent implements OnInit {
 
     getSavedProjects(){
         this.gists = this._gistsService.getSavedProjects();
+        return this.gists;
     }
 
-    checkTime() {
-        let now: any = new Date();
-        let lastUpdate: any = new Date(this.lastUpdate);
-        let time = (now - lastUpdate + 1000) / 1000;
-        let minutes = time / 60 % 60;
-        console.log(minutes);
-        return minutes >= 1 ? true : false;
+    counterTime(){
+        this._checkTimeService.counterTime();
     }
-
 }
