@@ -15,6 +15,7 @@ export class FilesTableComponent implements OnInit {
     public gists;
     public title: String;
     public lastUpdate;
+    public refreshDisable: boolean;
 
     constructor(
         private _gistsService: GistsService,
@@ -22,6 +23,7 @@ export class FilesTableComponent implements OnInit {
     ){
         this.title = 'Hello :)';
         this.lastUpdate = new Date();
+        this.refreshDisable = false;
     }
 
     ngOnInit(){
@@ -44,6 +46,7 @@ export class FilesTableComponent implements OnInit {
             response => {
                 if(response.length > 0){
                     this.gists = response;
+                    this.refreshDisable = false;
                     if(this._gistsService.persistData(this.gists)){
                         console.log('Datos almacenados en localStorage');
                     }else{
@@ -64,5 +67,10 @@ export class FilesTableComponent implements OnInit {
 
     counterTime(){
         this._checkTimeService.counterTime();
+    }
+
+    refresh(){
+        this.refreshDisable = true;
+        this.getProjects(true);
     }
 }

@@ -16,6 +16,18 @@ body{
     margin: auto !important;
 }
 
+.refresh{
+    color: white;
+}
+
+.disable{
+    -webkit-animation: 3s rotate linear infinite;
+    animation: 3s rotate linear infinite;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    color: white;
+}
+
 .container .card{
     margin: 15px 0 !important;
     border-radius: 10px !important;
@@ -63,4 +75,20 @@ body{
 
 .info-description {
     margin: 20px 0 !important;
+}
+
+@keyframes rotate {
+    from {transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(360deg);
+    }
+    to {
+      -webkit-transform: rotate(0deg);
+    }
 }

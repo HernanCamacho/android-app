@@ -1,5 +1,11 @@
 <nav class="navbar fixed-top navbar-dark bg-dark">
   <a  class="navbar-brand" href="#">Github's Projects</a>
+  <span class="refresh" (click)="refresh()" *ngIf="!refreshDisable">
+      <i class="fas fa-undo-alt"></i>
+  </span>
+  <span class="disable" *ngIf="refreshDisable">
+      <i class="fas fa-undo-alt"></i>
+  </span>
 </nav>
 
 <div class="container">
