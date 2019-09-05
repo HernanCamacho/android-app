@@ -10,7 +10,8 @@ import { TextDetailsComponent } from './components/text-details/text-details.com
 import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
-    {path: '', component: FilesTableComponent}
+    {path: '', component: FilesTableComponent},
+    {path: 'details', component: TextDetailsComponent},
 ];
 
 @NgModule({

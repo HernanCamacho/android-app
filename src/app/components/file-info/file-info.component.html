@@ -1,24 +1,36 @@
 <div class="card-body">
     <div class="row">
-        <div class="user" style="width: 20%;">
+        <div class="user">
             <a href="">
-                <img style="width: 100%;" src="{{gist.owner.avatar_url}}" alt="">
+                <img class="avatar" src="{{gist.owner.avatar_url}}" alt="">
             </a>
         </div>
-        <div style="width:80%">
+        <div class="gist">
             <div class="info-file">
-                <a href="">
-                    <span class="info filename">{{file[0][1].filename}}</span>
-                </a>
-                <time class="info file">{{gist.created_at | date:'dd/MM/yyyy'}}</time>
-                <span class="info file">{{gist.comments}}</span>
-                <p>{{gist.owner.login}}</p>
+                    <p class="info">
+                        {{gist.owner.login}} /
+                        <app-text-details class="info filename" [fileDetails]="file[0][1]">
+                        </app-text-details>
+                    </p>
+                <time class="info file">
+                    {{gist.created_at | date:'h:mm'}}
+                    <span class="info file" *ngIf="gist.comments > 1">
+                        ·  Comments: {{gist.comments}}
+                    </span>
+                    <span class="info file" *ngIf="gist.comments < 1">
+                        · No comments
+                    </span>
+                </time>
             </div>
-            <div class="info-description">
-                <p>
-                    {{gist.description}}
-                </p>
-            </div>
+
         </div>
+    </div>
+    <div class="info-description">
+        <p class="info" *ngIf="gist.description">
+            {{gist.description}}
+        </p>
+        <p *ngIf="!gist.description">
+            This project has no description.
+        </p>
     </div>
 </div>

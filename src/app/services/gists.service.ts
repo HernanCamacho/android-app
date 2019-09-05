@@ -29,4 +29,9 @@ export class GistsService {
         return true;
     }
 
+    getCode(url){
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(url, {headers: headers});
+    }
+
 }
