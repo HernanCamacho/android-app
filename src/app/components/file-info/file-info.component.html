@@ -9,8 +9,9 @@
             <div class="info-file">
                     <p class="info">
                         {{gist.owner.login}} /
-                        <app-text-details class="info filename" [fileDetails]="file[0][1]">
-                        </app-text-details>
+                        <a class="info filename" [routerLink]="['/details', file[0][1].raw_url]">
+                            {{file[0][1].filename}}
+                        </a>
                     </p>
                 <time class="info file">
                     {{gist.created_at | date:'h:mm'}}

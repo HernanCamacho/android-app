@@ -13,11 +13,32 @@ import { GistsService } from '../../services/gists.service';
 export class TextDetailsComponent implements OnInit {
 
     @Input() fileDetails;
+    public code;
 
     constructor(
-        private _gistsService: GistsService
+        private _gistsService: GistsService,
+        private _route: ActivatedRoute
     ){}
 
-    ngOnInit(){}
+    ngOnInit(){
+        this.loadPage();
+    }
+
+    loadPage(){
+        this._route.params.subscribe(params =>{
+			let url = params['url'];
+			this.getCode(url);
+		});
+    }
+
+    getCode(url){
+        this._gistsService.getCode(url).subscribe(
+            response => {
+                this.code = response;
+                console.log(this.code);
+            }, error => {
+                console.log(error);
+            });
+    }
 
 }

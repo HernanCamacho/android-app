@@ -29,9 +29,8 @@ export class GistsService {
         return true;
     }
 
-    getCode(url){
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(url, {headers: headers});
+    getCode(url): Observable<any>{
+        return this._http.get(url, {responseType: 'text'});
     }
 
 }

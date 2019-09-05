@@ -11,7 +11,7 @@ import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
     {path: '', component: FilesTableComponent},
-    {path: 'details', component: TextDetailsComponent},
+    {path: 'details/:url', component: TextDetailsComponent},
 ];
 
 @NgModule({
